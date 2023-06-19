@@ -1,0 +1,68 @@
+body {
+  background-color: rgb(20, 105, 105);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: antiquewhite;
+  border-radius: 1em;
+}
+.summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  width: 500px;
+  height: 50px;
+  border-radius: 1em;
+  margin-top: 15px;
+}
+.input-summary {
+  border-radius: 1em;
+  width: 50px;
+}
+.main-app {
+  display: flex;
+}
+.revenue {
+  padding: 15px;
+  margin: 10px;
+  width: 430px;
+  height: 650px;
+  background-color: aliceblue;
+  border-radius: 1em;
+}
+.expense {
+  padding: 15px;
+  margin: 10px;
+  width: 430px;
+  height: 650px;
+  background-color: aliceblue;
+  border-radius: 1em;
+}
+.rev-added {
+  padding: 5px;
+  border-radius: 1em;
+  margin: 10px;
+  background-color: rgba(26, 116, 116, 0.403);
+  width: 90%;
+  height: 80%;
+}
+.exp-added {
+  padding: 5px;
+  border-radius: 1em;
+  margin: 10px;
+  background-color: rgba(26, 116, 116, 0.403);
+  width: 90%;
+  height: 80%;
+}
+.ammount {
+  margin: 0px 10px 0px 10px;
+}
