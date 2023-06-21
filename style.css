@@ -19,7 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
-  width: 500px;
+  width: 600px;
   height: 50px;
   border-radius: 1em;
   margin-top: 15px;
@@ -32,7 +32,7 @@ body {
   display: flex;
 }
 .revenue {
-  padding: 15px;
+  padding: 20px;
   margin: 10px;
   width: 430px;
   height: 650px;
@@ -40,7 +40,7 @@ body {
   border-radius: 1em;
 }
 .expense {
-  padding: 15px;
+  padding: 20px;
   margin: 10px;
   width: 430px;
   height: 650px;
@@ -50,7 +50,7 @@ body {
 .rev-added {
   padding: 5px;
   border-radius: 1em;
-  margin: 10px;
+  margin: 8px;
   background-color: rgba(26, 116, 116, 0.403);
   width: 90%;
   height: 80%;
@@ -64,5 +64,63 @@ body {
   height: 80%;
 }
 .ammount {
-  margin: 0px 10px 0px 10px;
+  margin: 0px 8px 0px 8px;
+}
+#aBtn {
+  margin-left: 50px;
+  margin-right: 5px;
+}
+/* #btnContainer {
+  display: flex;
+  display: inline-block;
+  flex-direction: row;
+  justify-content: right;
+} */
+.delete-btn {
+  background-color: #ff4444;
+  color: #ffffff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.edit-btn {
+  background-color: #7c889f;
+  color: #ffffff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px 15px 5px 15px;
+}
+.add-btn {
+  background-color: green;
+  color: #ffffff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-btn:hover,
+.edit-btn:hover,
+.add-btn:hover {
+  opacity: 0.8;
+  background-color: white;
+  color: #ff4444;
+}
+.add-btn:hover {
+  background-color: green;
+  box-shadow: 0 0 5px green;
+  color: white;
+}
+input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 13 px;
+  outline: none;
+}
+input:focus {
+  border-color: #3377ff;
+  box-shadow: 0 0 5px #3377ff;
 }

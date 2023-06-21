@@ -8,13 +8,7 @@
   </head>
   <body>
     <div class="logo">LOGO</div>
-    <div class="summary">
-      <h1>
-        Możesz jeszcze wydać
-        <input type="number" class="input-summary" />
-        złotych
-      </h1>
-    </div>
+    <div class="summary"></div>
 
     <div class="main-app">
       <div class="revenue">
@@ -32,11 +26,11 @@
           id="rev-amo"
           value="0"
         />
-        <button class="add-revenue" id="rev-add">Add</button>
+        <button class="add-revenue add-btn" id="rev-add">Add</button>
         <div class="rev-added">
           <ul></ul>
         </div>
-        <p class="rev-sum">Total revenue:</p>
+        <p class="rev-sum" id="r">Total revenue: 0 zł</p>
       </div>
 
       <div class="expense">
@@ -54,11 +48,11 @@
           id="exp-amo"
           value="0"
         />
-        <button class="add-expense" id="exp-add">Add</button>
+        <button class="add-expense add-btn" id="exp-add">Add</button>
         <div class="exp-added">
           <ul></ul>
         </div>
-        <p class="exp-sum">Total expenses:</p>
+        <p class="exp-sum" id="e">Total expenses: 0 zł</p>
       </div>
     </div>
     <script src="index.js"></script>
