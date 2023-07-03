@@ -149,17 +149,13 @@ const balance = () => {
   } else if (totalRev > totalExp) {
     const remainingAmount = totalRev - totalExp;
     const balancePositive = document.createElement("h2");
-    balancePositive.textContent =
-      "You can still spend " + remainingAmount + " zł";
+    balancePositive.textContent = `You can still spend ${remainingAmount} zł`;
     const positive = document.querySelector(".summary");
     positive.appendChild(balancePositive);
   } else if (totalRev < totalExp) {
     const remainingAmount = totalExp - totalRev;
     const balanceNegative = document.createElement("h2");
-    balanceNegative.textContent =
-      "The balance is negative. You're at a disadvantage " +
-      remainingAmount +
-      " zł";
+    balanceNegative.textContent = `The balance is negative. You're at a disadvantage ${remainingAmount} zł`;
     const negative = document.querySelector(".summary");
     negative.appendChild(balanceNegative);
   }
