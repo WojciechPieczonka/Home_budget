@@ -70,12 +70,6 @@ body {
   margin-left: 50px;
   margin-right: 5px;
 }
-/* #btnContainer {
-  display: flex;
-  display: inline-block;
-  flex-direction: row;
-  justify-content: right;
-} */
 .delete-btn {
   background-color: #ff4444;
   color: #ffffff;
@@ -123,4 +117,8 @@ input {
 input:focus {
   border-color: #3377ff;
   box-shadow: 0 0 5px #3377ff;
+}
+.scroll {
+  overflow-y: auto;
+  max-height: 650px;
 }

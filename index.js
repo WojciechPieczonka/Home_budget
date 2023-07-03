@@ -65,7 +65,7 @@ addRevBtn.addEventListener("click", () => {
 });
 
 const revSumCount = () => {
-  let sum = revSum.reduce((accumulator, currentvalue) => {
+  const sum = revSum.reduce((accumulator, currentvalue) => {
     return accumulator + currentvalue;
   }, 0);
   return sum;
