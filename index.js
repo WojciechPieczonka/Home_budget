@@ -52,8 +52,11 @@ addRevBtn.addEventListener("click", () => {
   totalRevElement.textContent = `Total revenue: ${totalRev} zł`;
   balance();
 
-  const revItem = document.createElement("span");
-  revItem.innerHTML = `${revInputNam.value} - ${revInputAmo.value} zł`;
+  const revItemName = document.createElement("span");
+  revItemName.classList.add("span-margin");
+  const revItemAmount = document.createElement("span");
+  revItemName.innerHTML = revInputNam.value;
+  revItemAmount.innerHTML = revInputAmo.value;
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
@@ -70,7 +73,8 @@ addRevBtn.addEventListener("click", () => {
   buttonContainer.appendChild(editBtn);
   buttonContainer.appendChild(deleteBtn);
 
-  listItem.appendChild(revItem);
+  listItem.appendChild(revItemName);
+  listItem.appendChild(revItemAmount);
   listItem.appendChild(buttonContainer);
 
   const revAddedDiv = document.querySelector(".rev-added");
@@ -79,12 +83,30 @@ addRevBtn.addEventListener("click", () => {
   ul.appendChild(listItem);
 
   editBtn.addEventListener("click", () => {
-    revItem.setAttribute("contenteditable", "true");
+    const currentAmmount = Number(revItemAmount.textContent);
+    revItemName.setAttribute("contenteditable", "true");
+    revItemAmount.setAttribute("contenteditable", "true");
+    const saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.classList.add("save-btn");
+    saveBtn.id = "save-btn";
+    saveBtn.addEventListener("click", () => {
+      revItemName.setAttribute("contenteditable", "false");
+      revItemAmount.setAttribute("contenteditable", "false");
+      const indexToRemove = revSum.indexOf(currentAmmount);
+      revSum.splice(indexToRemove, 1);
+      revSum.push(Number(revItemAmount.textContent));
+      totalRev = revSumCount();
+      const totalRevElement = document.querySelector("#r");
+      totalRevElement.textContent = `Total revenue: ${totalRev} zł`;
+      balance();
+      saveBtn.remove();
+    });
+    buttonContainer.appendChild(saveBtn);
   });
 
   deleteBtn.addEventListener("click", () => {
-    ul.removeChild(listItem);
-    const indexToRemove = revSum.indexOf(Number(revInputAmoE));
+    const indexToRemove = revSum.indexOf(Number(revItemAmount.textContent));
     if (indexToRemove !== -1) {
       revSum.splice(indexToRemove, 1);
       totalRev = revSumCount();
@@ -92,6 +114,7 @@ addRevBtn.addEventListener("click", () => {
       totalRevElement.textContent = `Total revenue: ${totalRev} zł`;
       balance();
     }
+    ul.removeChild(listItem);
   });
 });
 

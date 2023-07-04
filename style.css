@@ -78,6 +78,15 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+.save-btn {
+  background-color: #ff4444;
+  color: #ffffff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
 .edit-btn {
   background-color: #7c889f;
   color: #ffffff;
@@ -121,4 +130,7 @@ input:focus {
 .scroll {
   overflow-y: auto;
   max-height: 650px;
+}
+.span-margin {
+  margin-right: 3px;
 }
