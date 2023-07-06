@@ -95,18 +95,25 @@ addRevBtn.addEventListener("click", () => {
     saveBtn.id = "save-btn";
 
     saveBtn.addEventListener("click", () => {
-      revItemName.setAttribute("contenteditable", "false");
-      revItemName.classList.remove("editing", "blink");
-      revItemAmount.setAttribute("contenteditable", "false");
-      revItemAmount.classList.remove("editing", "blink");
-      const indexToRemove = revSum.indexOf(currentAmmount);
-      revSum.splice(indexToRemove, 1);
-      revSum.push(Number(revItemAmount.textContent));
-      totalRev = revSumCount();
-      const totalRevElement = document.querySelector("#r");
-      totalRevElement.textContent = `Total revenue: ${totalRev} zł`;
-      balance();
-      saveBtn.remove();
+      if (
+        revItemName.textContent &&
+        Number(revItemAmount.textContent) >= 0.01
+      ) {
+        revItemName.setAttribute("contenteditable", "false");
+        revItemName.classList.remove("editing", "blink");
+        revItemAmount.setAttribute("contenteditable", "false");
+        revItemAmount.classList.remove("editing", "blink");
+        const indexToRemove = revSum.indexOf(currentAmmount);
+        revSum.splice(indexToRemove, 1);
+        revSum.push(Number(revItemAmount.textContent));
+        totalRev = revSumCount();
+        const totalRevElement = document.querySelector("#r");
+        totalRevElement.textContent = `Total revenue: ${totalRev} zł`;
+        balance();
+        saveBtn.remove();
+      } else {
+        alert("Wprowadź poprawne dane!");
+      }
     });
     buttonContainer.appendChild(saveBtn);
   });
@@ -154,29 +161,35 @@ addExpBtn.addEventListener("click", () => {
   const listItem = document.createElement("li");
   listItem.setAttribute("contenteditable", "false");
   listItem.classList.add("addedLi");
-
   expSum.push(Number(sumInputAmoE));
   totalExp = expSumCount(expSum);
   const totalExpElement = document.querySelector("#e");
   totalExpElement.textContent = `Total expenses: ${totalExp} zł`;
   balance();
 
-  const expItem = document.createElement("span"); /////////////////
-  expItem.innerHTML = `${expInputNam.value} - ${expInputAmo.value} zł`;
+  const expItemName = document.createElement("span");
+  expItemName.classList.add("span-margin");
+  const expItemAmount = document.createElement("span");
+  expItemName.innerHTML = expInputNam.value;
+  expItemAmount.innerHTML = expInputAmo.value;
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
   editBtn.classList.add("edit-btn");
+  editBtn.id = "edit-btn";
 
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
+  deleteBtn.id = "delete-btn";
 
   const buttonContainer = document.createElement("span");
+  buttonContainer.id = "btnContainer";
   buttonContainer.appendChild(editBtn);
   buttonContainer.appendChild(deleteBtn);
 
-  listItem.appendChild(expItem);
+  listItem.appendChild(expItemName);
+  listItem.appendChild(expItemAmount);
   listItem.appendChild(buttonContainer);
 
   const expAddedDiv = document.querySelector(".exp-added");
@@ -185,13 +198,53 @@ addExpBtn.addEventListener("click", () => {
   ul.appendChild(listItem);
 
   editBtn.addEventListener("click", () => {
-    expItem.setAttribute("contenteditable", "true");
-  });
+    const currentAmmount = Number(expItemAmount.textContent);
+    expItemName.setAttribute("contenteditable", "true");
+    expItemName.classList.add("editing", "blink");
+    expItemAmount.setAttribute("contenteditable", "true");
+    expItemAmount.classList.add("editing", "blink");
 
+    const saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.classList.add("save-btn");
+    saveBtn.id = "save-btn";
+
+    saveBtn.addEventListener("click", () => {
+      if (
+        expItemName.textContent &&
+        Number(expItemAmount.textContent) >= 0.01
+      ) {
+        expItemName.setAttribute("contenteditable", "false");
+        expItemName.classList.remove("editing", "blink");
+        expItemAmount.setAttribute("contenteditable", "false");
+        expItemAmount.classList.remove("editing", "blink");
+        const indexToRemove = expSum.indexOf(currentAmmount);
+        expSum.splice(indexToRemove, 1);
+        expSum.push(Number(expItemAmount.textContent));
+        totalExp = expSumCount();
+        const totalExpElement = document.querySelector("#e");
+        totalExpElement.textContent = `Total expenses: ${totalExp} zł`;
+        balance();
+        saveBtn.remove();
+      } else {
+        alert("Wprowadź poprawne dane!");
+      }
+    });
+    buttonContainer.appendChild(saveBtn);
+  });
   deleteBtn.addEventListener("click", () => {
+    const indexToRemove = expSum.indexOf(Number(expItemAmount.textContent));
+    if (indexToRemove !== -1) {
+      expSum.splice(indexToRemove, 1);
+      totalExp = expSumCount();
+      const totalExpElement = document.querySelector("#e");
+      totalExpElement.textContent = `Total expenses: ${totalExp} zł`;
+      balance();
+    }
     ul.removeChild(listItem);
   });
 });
+
 const expSumCount = () => {
   let sum = expSum.reduce((accumulator, currentvalue) => {
     return accumulator + currentvalue;
