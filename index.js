@@ -85,14 +85,20 @@ addRevBtn.addEventListener("click", () => {
   editBtn.addEventListener("click", () => {
     const currentAmmount = Number(revItemAmount.textContent);
     revItemName.setAttribute("contenteditable", "true");
+    revItemName.classList.add("editing", "blink");
     revItemAmount.setAttribute("contenteditable", "true");
+    revItemAmount.classList.add("editing", "blink");
+
     const saveBtn = document.createElement("button");
     saveBtn.textContent = "Save";
     saveBtn.classList.add("save-btn");
     saveBtn.id = "save-btn";
+
     saveBtn.addEventListener("click", () => {
       revItemName.setAttribute("contenteditable", "false");
+      revItemName.classList.remove("editing", "blink");
       revItemAmount.setAttribute("contenteditable", "false");
+      revItemAmount.classList.remove("editing", "blink");
       const indexToRemove = revSum.indexOf(currentAmmount);
       revSum.splice(indexToRemove, 1);
       revSum.push(Number(revItemAmount.textContent));

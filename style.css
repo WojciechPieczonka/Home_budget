@@ -132,5 +132,23 @@ input:focus {
   max-height: 650px;
 }
 .span-margin {
-  margin-right: 3px;
+  margin-right: 5px;
+}
+.editing {
+  color: red;
+  font-weight: bold;
+}
+.blink {
+  animation: blink 2s linear infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
