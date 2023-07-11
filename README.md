@@ -1,3 +1,5 @@
 # Home_budget
-Home budget
-https://homebudgetproject.netlify.app/
+Home budget web aplication.
+
+Click here to check: https://homebudgetproject.netlify.app/
+
