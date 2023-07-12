@@ -1,5 +1,5 @@
 # Home_budget
-Home budget aplication.
+Home budget application.
 
 **Click link to check:** https://homebudgetproject.netlify.app/
 
